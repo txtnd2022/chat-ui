@@ -4,10 +4,11 @@ import Login from './Login'
 import ChatScreen from './ChatScreen'
 import { RETRIEVE_USER } from '../redux/actions/authActions'
 import axios from 'axios'
+import { SERVER_URL } from '../host'
 
 function MainScreen() {
 
-    const host = 'http://184.73.109.198:8080'
+    const host = SERVER_URL 
 
 
     const dispatch = useDispatch()

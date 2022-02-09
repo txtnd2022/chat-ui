@@ -4,10 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { USER_LOGOUT } from '../../../redux/actions/authActions'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import { SERVER_URL } from '../host'
 
 function S_Header() {
 
-    const host = 'http://184.73.109.198:8080'
+    const host = SERVER_URL
 
     const dispatch = useDispatch()
     const state = useSelector(state => state.auth_reducer)

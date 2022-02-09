@@ -4,10 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { open_convo } from '../../../redux/actions/convActions'
 import S_Members from './S_Members'
+import { SERVER_URL } from '../host'
 
 function S_Body() {
 
-    const host = 'http://184.73.109.198:8080'
+    const host = SERVER_URL
 
     const state = useSelector(state => state.auth_reducer)
     const user_id = state.userData._id

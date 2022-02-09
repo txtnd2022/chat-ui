@@ -3,10 +3,11 @@ import styles from '../../../../styles/ChatScreen/Sidebar.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { open_convo } from '../../../redux/actions/convActions'
+import { SERVER_URL } from '../host'
 
 function S_Members({ conversation, c_user_Id }) {
 
-    const host = 'http://184.73.109.198:8080'
+    const host = SERVER_URL
 
     const dispatch = useDispatch()
     const [friendData, setFriendData] = React.useState([])

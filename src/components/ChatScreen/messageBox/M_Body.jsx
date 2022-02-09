@@ -7,11 +7,12 @@ import { CHAT_WITH_RAYAN, CHAT_WITH_TEST } from '../../../../sampleGlobalChat'
 import axios from 'axios'
 import { Scrollbars } from 'react-custom-scrollbars'
 import { io } from 'socket.io-client'
+import { SERVER_URL } from '../../../host'
 
 
 function M_Body() {
 
-    const host = 'http://184.73.109.198:8080'
+    const host = SERVER_URL
 
     const dispatch = useDispatch()
     // const [socket, setSocket] = React.useState(null)
