@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState, useEffect} from 'react'
 import styles from '../../../../styles/ChatScreen/MessageBox.module.css'
 import Message from './Message'
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,21 +16,21 @@ function M_Body() {
     const dispatch = useDispatch()
     // const [socket, setSocket] = React.useState(null)
     const socket = React.useRef()
-    const [inputMessage, setInputMessage] = React.useState('')
-    const [messageData, setMessageData] = React.useState([])
+    const [inputMessage, setInputMessage] = useState('')
+    const [messageData, setMessageData] = useState([])
     const ConvReducer = useSelector(state => state.conv_reducer)
     const AuthReducer = useSelector(state => state.auth_reducer)
     const currentChat = ConvReducer.conversation_Id
     const conversation_Id = ConvReducer.conversation_Id
     const Current_User_Id = AuthReducer.userData._id
     const friend_Data = ConvReducer.friend_Data
-    const [arrivalMessage, setArrivalMessage] = React.useState(null)
+    const [arrivalMessage, setArrivalMessage] = useState(null)
 
     //scroll end to div
     const scrollRef = React.useRef()
 
 
-    React.useEffect(() => {
+    useEffect(() => {
         socket.current = io(`ws://${host}:8900`)
         socket.current.on('getMessage', data => {
             setArrivalMessage({
@@ -42,15 +42,15 @@ function M_Body() {
     }, [])
 
 
-    console.log(currentChat);
+    console.log(socket.current);
 
-    React.useEffect(() => {
+    useEffect(() => {
         console.log(arrivalMessage)
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
             setMessageData((prev) => [...prev, arrivalMessage])
-    }, [arrivalMessage, friend_Data])
+    }, [arrivalMessage, currentChat])
 
-    React.useEffect(() => {
+    useEffect(() => {
         socket.current.emit('addUsers', Current_User_Id)
         socket.current.on('getUsers', users => {
             console.log(users);
@@ -69,7 +69,7 @@ function M_Body() {
     //     })
     // }, [socket])
 
-    React.useEffect(() => {
+    useEffect(() => {
         const getMessages = async () => {
             try {
                 const url = `${host}/api/messages/${conversation_Id._id}`
@@ -83,7 +83,7 @@ function M_Body() {
         getMessages()
     }, [conversation_Id])
 
-    React.useEffect(() => {
+    useEffect(() => {
         scrollRef.current?.scrollIntoView({behavior: 'smooth'})
     },  [messageData])
 
@@ -132,10 +132,9 @@ function M_Body() {
                                 messageData.map((c, id) => {
                                     // console.log(c)
                                     return (
-                                        <div className={styles.scroll_div} ref={scrollRef}>
+                                        <div key={id} className={styles.scroll_div} ref={scrollRef}>
                                             <Message  senderId={c.senderId} c_user_Id={Current_User_Id} key={id} message={c.text} />
                                         </div> 
-
                                     )
                                 })
                                 : <><p>Start a new Convo</p></>

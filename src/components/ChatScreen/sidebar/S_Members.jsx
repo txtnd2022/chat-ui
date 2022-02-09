@@ -28,7 +28,7 @@ function S_Members({ conversation, c_user_Id }) {
             }
         }
         fetchUserDetails()
-    }, [c_user_Id, conversation])
+    }, [c_user_Id, conversation, friend_Id])
 
     // const delConnection = async () => {
     //     try {

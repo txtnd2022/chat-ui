@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    cursor: default;
 }
 
 .b_h_flex1 {
@@ -27,6 +28,7 @@
    padding: 1rem 0rem; 
    display: flex;
    flex-direction: row;
+   cursor: default;
 
 }
 

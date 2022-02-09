@@ -2,10 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { USER_LOGOUT } from '../../redux/actions/authActions'
 
-function index() {
+function Index() {
 
     const dispatch = useDispatch()
-
     const logout = () => {
         dispatch(USER_LOGOUT())
     }
@@ -17,4 +16,4 @@ function index() {
     )
 }
 
-export default index
+export default Index

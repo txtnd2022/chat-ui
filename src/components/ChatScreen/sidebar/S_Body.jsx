@@ -25,7 +25,7 @@ function S_Body() {
             }
         }
         getUserConnections()
-    }, [])
+    }, [state.userData.connections])
 
     React.useEffect(() => {
         const getUserConversations = async () => {
@@ -39,7 +39,7 @@ function S_Body() {
             }
         }
         getUserConversations()
-    }, [])
+    }, [conversations,user_id])
 
     return (
         <div className={styles.s_body_main}>

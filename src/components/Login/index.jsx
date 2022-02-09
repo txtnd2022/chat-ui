@@ -1,15 +1,14 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { USER_LOGIN } from '../../redux/actions/authActions'
 
-function index() {
+function Index() {
 
     const host = 'http://184.73.109.198:8080'
 
     const dispatch = useDispatch()
-    const [data, setData] = React.useState('')
-    const [loginData, setLoginData] = React.useState({
+    const [loginData, setLoginData] = useState({
         email: '',
         password: '',
     })
@@ -63,4 +62,4 @@ function index() {
     )
 }
 
-export default index
+export default Index
