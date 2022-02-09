@@ -45,7 +45,7 @@ function M_Body() {
             })
         } else {
             // production code
-            socket.current = io(`${host}:9100`)
+            socket.current = io(`${host}`)
             socket.current.on('getMessage', data => {
                 setArrivalMessage({
                     sender: data.senderId,
