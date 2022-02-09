@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://backend-texti.herokuapp.com/'
+export const SERVER_URL = 'https://backend-texti.herokuapp.com'

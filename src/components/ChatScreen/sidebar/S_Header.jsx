@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { USER_LOGOUT } from '../../../redux/actions/authActions'
 import Swal from 'sweetalert2'
 import axios from 'axios'
-import { SERVER_URL } from '../host'
+import { SERVER_URL } from '../../../host'
 
 function S_Header() {
 

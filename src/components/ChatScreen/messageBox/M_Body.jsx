@@ -58,10 +58,10 @@ function M_Body() {
     }, [])
 
 
-    console.log(socket.current);
+    // console.log(socket.current);
 
     useEffect(() => {
-        console.log(arrivalMessage)
+        // console.log(arrivalMessage)
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
             setMessageData((prev) => [...prev, arrivalMessage])
     }, [arrivalMessage, currentChat])
@@ -69,7 +69,7 @@ function M_Body() {
     useEffect(() => {
         socket.current.emit('addUsers', Current_User_Id)
         socket.current.on('getUsers', users => {
-            console.log(users);
+            // console.log(users);
         })
     }, [Current_User_Id])
 
@@ -93,7 +93,7 @@ function M_Body() {
                 const messages = res.data.messages
                 setMessageData(messages)
             } catch (er) {
-                console.log(er)
+                console.log('Select a conversation')
             }
         }
         getMessages()
@@ -153,7 +153,7 @@ function M_Body() {
                                         </div>
                                     )
                                 })
-                                : <><p>Start a new Convo</p></>
+                                : <div><p>Start a new Convo</p></div>
                         }
                     </Scrollbars>
                 </div>

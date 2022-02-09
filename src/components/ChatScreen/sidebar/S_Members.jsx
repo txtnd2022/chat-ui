@@ -3,7 +3,7 @@ import styles from '../../../../styles/ChatScreen/Sidebar.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { open_convo } from '../../../redux/actions/convActions'
-import { SERVER_URL } from '../host'
+import { SERVER_URL } from '../../../host'
 
 function S_Members({ conversation, c_user_Id }) {
 

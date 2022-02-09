@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 import { open_convo } from '../../../redux/actions/convActions'
 import S_Members from './S_Members'
-import { SERVER_URL } from '../host'
+import { SERVER_URL } from '../../../host'
 
 function S_Body() {
 

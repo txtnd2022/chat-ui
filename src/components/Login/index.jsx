@@ -2,7 +2,7 @@ import React , {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { USER_LOGIN } from '../../redux/actions/authActions'
-import { SERVER_URL } from '../host'
+import { SERVER_URL } from '../../host'
 
 function Index() {
 
