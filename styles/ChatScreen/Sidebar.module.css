@@ -1,18 +1,28 @@
 .sidebar_container {
+    background-color: #212121;
+    height: 100vh;
     flex: .3;
-    background-color: rgb(0, 82, 82);
+    /* background-color: rgb(0, 82, 82); */
     padding: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .s_body_header {
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 10px;
-    background-color: rgba(6, 207, 207, 0.856);
+    background: #121212;
+    /* background: linear-gradient(90deg, rgba(108,212,255,1) 0%, rgba(212,150,167,1) 50%, rgba(254,147,140,1) 100%); */
     margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     cursor: default;
+}
+
+.s_body_title {
+    color: #eee;
+    margin: 1rem;
+    font-size: 1.2rem;
 }
 
 .b_h_flex1 {
@@ -24,19 +34,37 @@
 
 }
 
+.s_add_chat {
+    margin-top: .7rem;
+    width: fit-content;
+    background-color: #212121;
+    outline: none;
+    border: none;
+    color: #eee;
+    font-size: .8rem;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
 .coversation_box {
    padding: 1rem 0rem; 
    display: flex;
+   border-radius: 10px;
    flex-direction: row;
    cursor: default;
+   margin: .7rem;
+   background-color: #212121;
+   /* box-shadow: rgba(212, 212, 212, 0.2) 0px 2px 8px 0px; */
 
 }
 
 .s_avatar {
+    margin: 0rem 1rem;
     border-radius: 50%;
-    height: 25px;
-    width: 25px;
+    height: 45px;
+    width: 45px;
     display: flex;
+    font-size: 1.5rem;
     justify-content: center;
     align-items: center;
     background: #fff;
@@ -44,10 +72,16 @@
 
 .s_avatar_name {
     margin-left: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #eee;
+    font-size: 1.3rem;
 }
 
 .s_body_main {
     padding: 0.5rem 1rem;
     border-radius: 10px;
-    background-color: rgba(48, 129, 129, 0.856);
+    background: #121212;
+    height: 85%;
 }

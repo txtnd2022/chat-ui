@@ -1,0 +1,32 @@
+.container {
+    height: 100vh !important;
+    display: flex;
+}
+
+.login_container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    width: fit-content;
+    padding: 2rem;
+}
+
+.header {
+    font-size: 1.7rem;
+    color: #eee;
+}
+
+.login_container input {
+    margin: 1rem;
+    padding: .5rem 1rem;
+}
+
+.login_container button {
+    margin: 1rem;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+}
+

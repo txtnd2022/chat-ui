@@ -11,7 +11,7 @@ import { SERVER_URL } from '../../../host'
 
 
 function M_Body() {
-
+    
     const host = SERVER_URL
 
     const dispatch = useDispatch()
@@ -26,13 +26,13 @@ function M_Body() {
     const Current_User_Id = AuthReducer.userData._id
     const friend_Data = ConvReducer.friend_Data
     const [arrivalMessage, setArrivalMessage] = useState(null)
+    const [callSocket, setCallSocket] = useState(0)
 
     //scroll end to div
     const scrollRef = React.useRef()
 
 
     useEffect(() => {
-
         if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
             // dev code
             socket.current = io(`ws://localhost:8900`)
@@ -61,17 +61,18 @@ function M_Body() {
     // console.log(socket.current);
 
     useEffect(() => {
-        // console.log(arrivalMessage)
+        console.log(arrivalMessage)
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
             setMessageData((prev) => [...prev, arrivalMessage])
     }, [arrivalMessage, currentChat])
 
     useEffect(() => {
+        console.log('add and getuser')
         socket.current.emit('addUsers', Current_User_Id)
         socket.current.on('getUsers', users => {
             // console.log(users);
         })
-    }, [Current_User_Id])
+    }, [])
 
     // React.useEffect(() => {
     //     setSocket(io('ws://localhost:8900'))
@@ -87,6 +88,7 @@ function M_Body() {
 
     useEffect(() => {
         const getMessages = async () => {
+            console.log('getMessage')
             try {
                 const url = `${host}/api/messages/${conversation_Id._id}`
                 const res = await axios(url)

@@ -1,8 +1,9 @@
-import React , {useState} from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { USER_LOGIN } from '../../redux/actions/authActions'
 import { SERVER_URL } from '../../host'
+import styles from '../../../styles/Login.module.css'
 
 function Index() {
 
@@ -42,22 +43,24 @@ function Index() {
     }
 
     return (
-        <div>
 
-            <input
-                name="email"
-                value={loginData.email}
-                placeholder='Email'
-                onChange={(e) => inputValue(e)} />
+        <div className={styles.container}>
+            <div className={styles.login_container}>
+                <p className={styles.header}>LOGIN </p>
+                <input
+                    name="email"
+                    value={loginData.email}
+                    placeholder='Email'
+                    onChange={(e) => inputValue(e)} />
 
-            <input
-                name="password"
-                value={loginData.password}
-                placeholder='Password'
-                onChange={(e) => inputValue(e)} />
+                <input
+                    name="password"
+                    value={loginData.password}
+                    placeholder='Password'
+                    onChange={(e) => inputValue(e)} />
 
-            <button onClick={() => logIn()} > Login </button>
-
+                <button onClick={() => logIn()} > Login </button>
+            </div>
         </div>
     )
 }

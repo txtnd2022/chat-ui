@@ -10,13 +10,13 @@ function Message({senderId, c_user_Id, message}) {
                 c_user_Id === senderId ?
                     <div className={styles.m_container_own}>
                         <div className={styles.each_message}>
-                            <p>{message}</p>
+                            <p className={styles.each_message_p}>{message}</p>
                         </div>
                     </div>
                     :
                     <div className={styles.m_container_friend}>
                         <div className={styles.each_message}>
-                            <p>{message}</p>
+                            <p className={styles.each_message_p}>{message}</p>
                         </div>
                     </div>
             }

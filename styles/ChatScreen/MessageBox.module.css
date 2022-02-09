@@ -1,14 +1,17 @@
 .messageBox_container {
+    background-color: #212121;
+    height: 100vh;
     flex: .7;
-    background-color: rgb(3, 158, 158);
+    /* background-color: rgb(3, 158, 158); */
     padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .m_header {
     padding: 1rem;
     border-radius: 10px;
     color: white;
-    background-color: rgb(0, 82, 82);;
+    background-color: #111111;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
@@ -16,20 +19,26 @@
     cursor: default;
 }
 
+
+.m_header_title {
+    color: #eee;
+    margin: 1rem;
+    font-size: 1.2rem;
+}
+
 .m_body {
-    height: 73vh;
-    padding: .5rem;
+    height: 82.5vh;
     border-radius: 10px;
-    background-color: rgb(0, 82, 82);
+    background-color: #212121;
     color: white;
 }
 
 .message_area {
-    background-color: #fafafaab;
+    background-color: #111111;
     display: flex;
     flex-direction: column;
     border-radius: 2px;
-    max-height: 66vh;
+    max-height: 74vh;
     height: 100%;
     position: relative;
     z-index: 1;
@@ -37,17 +46,28 @@
 }
 
 .input_area {
-    margin: .4rem;
+    margin-top: .8rem;
     display: flex;
     flex-direction: row;
 }
 
 .input_area input {
-    flex: .8;
+    flex: .9;
+    padding: .6rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    margin-right: .4rem;
 }
 
 .input_area button {
-    flex: .2;
+    flex: .1;
+    background-color: cornsilk;
+    padding: .6rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 .m_container_own {
@@ -60,9 +80,14 @@
 .each_message {
     margin-top: .7rem;
     width: fit-content;
-    background-color: cornsilk;
+    background-color: #e0e0e0;
     border-radius: 10px;
     padding: 5px 10px;
+    font-weight: 400;
+}
+
+.each_message_p {
+    font-weight: 600;
 }
 
 .m_container_friend {

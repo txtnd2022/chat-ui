@@ -44,7 +44,9 @@ function S_Body() {
 
     return (
         <div className={styles.s_body_main}>
-            <p>Messages</p>
+            <div className={styles.s_body_title}>
+                <p>Your chats</p>
+            </div>
             {
                 conversations.map((c, id) => {
                     return (

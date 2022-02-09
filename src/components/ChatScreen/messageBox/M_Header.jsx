@@ -11,12 +11,16 @@ function M_Header() {
                 {
                     state.friend_Data === null ?
                         <>
-                            <p>Select user</p>
+                            <p className={styles.m_header_title}>Select user</p>
                         </> :
                         <>
                             {
                                 state.friend_Data !== null ?
-                                    <p>{state.friend_Data.username}</p>
+                                    <div>
+                                        <p className={styles.m_header_title}>{state.friend_Data.username}</p>
+                                    </div>
+
+
                                     :
                                     <>
                                     </>

@@ -79,7 +79,7 @@ function S_Header() {
                     <div className={styles.s_avatar_name}>{username}</div>
                 </div>
                 <div className={styles.b_h_flex2}>
-                    <button onClick={() => { newChat() }} > Chat + </button>
+                    <button className={styles.s_add_chat} onClick={() => { newChat() }} > Add Friend </button>
                 </div>
             </div>
         </div>
