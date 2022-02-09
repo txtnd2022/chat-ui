@@ -1,4 +1,4 @@
-import React , {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../../../../styles/ChatScreen/MessageBox.module.css'
 import Message from './Message'
 import { useDispatch, useSelector } from 'react-redux'
@@ -31,14 +31,29 @@ function M_Body() {
 
 
     useEffect(() => {
-        socket.current = io(`ws://${host}:8900`)
-        socket.current.on('getMessage', data => {
-            setArrivalMessage({
-                sender: data.senderId,
-                text: data.text,
-                createdAt: Date.now()
+
+        if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+            // dev code
+            socket.current = io(`ws://localhost:8900`)
+            socket.current.on('getMessage', data => {
+                setArrivalMessage({
+                    sender: data.senderId,
+                    text: data.text,
+                    createdAt: Date.now()
+                })
             })
-        })
+        } else {
+            // production code
+            socket.current = io(`${host}:9100`)
+            socket.current.on('getMessage', data => {
+                setArrivalMessage({
+                    sender: data.senderId,
+                    text: data.text,
+                    createdAt: Date.now()
+                })
+            })
+        }
+
     }, [])
 
 
@@ -84,8 +99,8 @@ function M_Body() {
     }, [conversation_Id])
 
     useEffect(() => {
-        scrollRef.current?.scrollIntoView({behavior: 'smooth'})
-    },  [messageData])
+        scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, [messageData])
 
 
     const sendMessage = async (e) => {
@@ -133,8 +148,8 @@ function M_Body() {
                                     // console.log(c)
                                     return (
                                         <div key={id} className={styles.scroll_div} ref={scrollRef}>
-                                            <Message  senderId={c.senderId} c_user_Id={Current_User_Id} key={id} message={c.text} />
-                                        </div> 
+                                            <Message senderId={c.senderId} c_user_Id={Current_User_Id} key={id} message={c.text} />
+                                        </div>
                                     )
                                 })
                                 : <><p>Start a new Convo</p></>

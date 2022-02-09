@@ -39,7 +39,7 @@ function S_Body() {
             }
         }
         getUserConversations()
-    }, [conversations,user_id])
+    }, [user_id])
 
     return (
         <div className={styles.s_body_main}>
